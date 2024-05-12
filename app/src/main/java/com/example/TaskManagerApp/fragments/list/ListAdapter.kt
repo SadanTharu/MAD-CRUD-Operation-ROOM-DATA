@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.TaskManagerApp.R
-import com.example.TaskManagerApp.model.User
+import com.example.TaskManagerApp.model.Note
 import kotlinx.android.synthetic.main.custom_row.view.*
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
-    private var userList = emptyList<User>()
+    private var noteList = emptyList<Note>()
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -20,15 +20,15 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-       return userList.size
+       return noteList.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = userList[position]
+        val currentItem = noteList[position]
         holder.itemView.id_txt.text = currentItem.id.toString()
-        holder.itemView.firstName_txt.text = currentItem.firstName
-        holder.itemView.lastName_txt.text = currentItem.lastName
-        holder.itemView.age_txt.text = currentItem.age.toString()
+        holder.itemView.title_txt.text = currentItem.title
+        holder.itemView.content_txt.text = currentItem.content
+        holder.itemView.priority_txt.text = currentItem.priority.toString()
 
         holder.itemView.rowLayout.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
@@ -36,8 +36,8 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         }
     }
 
-    fun setData(user: List<User>){
-        this.userList = user
+    fun setData(note: List<Note>){
+        this.noteList = note
         notifyDataSetChanged()
     }
 }

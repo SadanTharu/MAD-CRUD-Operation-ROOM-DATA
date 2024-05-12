@@ -11,14 +11,14 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.TaskManagerApp.R
-import com.example.TaskManagerApp.model.User
-import com.example.TaskManagerApp.viewmodel.UserViewModel
+import com.example.TaskManagerApp.model.Note
+import com.example.TaskManagerApp.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 
 class AddFragment : Fragment() {
 
-    private lateinit var mUserViewModel: UserViewModel
+    private lateinit var mNoteViewModel: NoteViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +27,7 @@ class AddFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add, container, false)
 
-        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
         view.add_btn.setOnClickListener {
             insertDataToDatabase()
@@ -37,20 +37,20 @@ class AddFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val firstName = addFirstName_et.text.toString()
-        val lastName = addLastName_et.text.toString()
-        val age = addAge_et.text
+        val title = addTitle_et.text.toString()
+        val content = addContent_et.text.toString()
+        val priority = addPriority_et.text
 
-        if(inputCheck(firstName, lastName, age)){
+        if(inputCheck(title, content, priority)){
             // Create User Object
-            val user = User(
+            val note = Note(
                 0,
-                firstName,
-                lastName,
-                Integer.parseInt(age.toString())
+                title,
+                content,
+                Integer.parseInt(priority.toString())
             )
             // Add Data to Database
-            mUserViewModel.addUser(user)
+            mNoteViewModel.addNote(note)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
             // Navigate Back
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
@@ -59,8 +59,7 @@ class AddFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean{
-        return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && age.isEmpty())
+    private fun inputCheck(title: String, content: String, priority: Editable): Boolean{
+        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(content) && priority.isEmpty())
     }
-
 }

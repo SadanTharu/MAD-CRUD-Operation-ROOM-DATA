@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.TaskManagerApp.R
-import com.example.TaskManagerApp.model.User
-import com.example.TaskManagerApp.viewmodel.UserViewModel
+import com.example.TaskManagerApp.model.Note
+import com.example.TaskManagerApp.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
 
@@ -20,7 +20,7 @@ class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
 
-    private lateinit var mUserViewModel: UserViewModel
+    private lateinit var mNoteViewModel: NoteViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,11 +29,11 @@ class UpdateFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_update, container, false)
 
-        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        mNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
-        view.updateFirstName_et.setText(args.currentUser.firstName)
-        view.updateLastName_et.setText(args.currentUser.lastName)
-        view.updateAge_et.setText(args.currentUser.age.toString())
+        view.updateTitle_et.setText(args.currentNote.title)
+        view.updateContent_et.setText(args.currentNote.content)
+        view.updatePriority_et.setText(args.currentNote.priority.toString())
 
         view.update_btn.setOnClickListener {
             updateItem()
@@ -46,15 +46,15 @@ class UpdateFragment : Fragment() {
     }
 
     private fun updateItem() {
-        val firstName = updateFirstName_et.text.toString()
-        val lastName = updateLastName_et.text.toString()
-        val age = Integer.parseInt(updateAge_et.text.toString())
+        val title = updateTitle_et.text.toString()
+        val content = updateContent_et.text.toString()
+        val priority = Integer.parseInt(updatePriority_et.text.toString())
 
-        if (inputCheck(firstName, lastName, updateAge_et.text)) {
-            // Create User Object
-            val updatedUser = User(args.currentUser.id, firstName, lastName, age)
-            // Update Current User
-            mUserViewModel.updateUser(updatedUser)
+        if (inputCheck(title, content, updatePriority_et.text)) {
+            // Create Note Object
+            val updatedNote = Note(args.currentNote.id, title, content, priority)
+            // Update Current Note
+            mNoteViewModel.updateNote(updatedNote)
             Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
             // Navigate Back
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
@@ -64,8 +64,8 @@ class UpdateFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean {
-        return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && age.isEmpty())
+    private fun inputCheck(title: String, content: String, priority: Editable): Boolean {
+        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(content) && priority.isEmpty())
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -74,24 +74,24 @@ class UpdateFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_delete) {
-            deleteUser()
+            deleteNote()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun deleteUser() {
+    private fun deleteNote() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
-            mUserViewModel.deleteUser(args.currentUser)
+            mNoteViewModel.deleteNote(args.currentNote)
             Toast.makeText(
                 requireContext(),
-                "Successfully removed: ${args.currentUser.firstName}",
+                "Successfully removed: ${args.currentNote.title}",
                 Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         }
         builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${args.currentUser.firstName}?")
-        builder.setMessage("Are you sure you want to delete ${args.currentUser.firstName}?")
+        builder.setTitle("Delete ${args.currentNote.title}?")
+        builder.setMessage("Are you sure you want to delete ${args.currentNote.title}?")
         builder.create().show()
     }
 }
