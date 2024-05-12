@@ -7,6 +7,58 @@
     android:padding="24dp"
     tools:context=".fragments.add.AddFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/add"
+            android:textColor="#44FF00"
+            android:textSize="50dp" />
+
+        <EditText
+            android:id="@+id/addTitle_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:ems="10"
+            android:hint="title"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/addContent_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Content"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:singleLine="false" />
+
+        <EditText
+            android:id="@+id/addPriority_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Priority"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Add" />
+
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="500dp"
@@ -15,71 +67,5 @@
         android:src="@drawable/rocket"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/addTitle_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:hint="title"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/addContent_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Content"
-        android:inputType="textMultiLine"
-        android:lines="5"
-        android:singleLine="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addFirstName_et" />
-
-    <EditText
-        android:id="@+id/addPriority_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Priority"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addLastName_et" />
-
-    <Button
-        android:id="@+id/add_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addAge_et" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add"
-        android:textColor="#44FF00"
-        android:textSize="50dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintBottom_toTopOf="@+id/addFirstName_et"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

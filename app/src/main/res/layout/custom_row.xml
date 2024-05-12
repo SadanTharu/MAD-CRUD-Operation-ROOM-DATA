@@ -29,7 +29,9 @@
     <TextView
         android:id="@+id/content_txt"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:maxLines="3"
         android:text="Doe"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
@@ -43,6 +45,7 @@
         android:text="25"
         android:textStyle="bold"
         android:textSize="44sp"
+        android:textColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,4 +57,15 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/id_txt"
         app:layout_constraintTop_toBottomOf="@+id/content_txt" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Priority: "
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/priority_txt"
+        app:layout_constraintEnd_toStartOf="@+id/priority_txt"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

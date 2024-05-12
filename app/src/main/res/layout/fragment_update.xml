@@ -11,7 +11,7 @@
         android:id="@+id/updateTitle_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="120dp"
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
@@ -57,4 +57,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updatePriority_et" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        android:alpha="0.5"
+        android:src="@drawable/boy1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
