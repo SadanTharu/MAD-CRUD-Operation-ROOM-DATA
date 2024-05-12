@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.roomapp.fragments.list.ListFragment"
+        android:name="com.example.TaskManagerApp.fragments.list.ListFragment"
         android:label="List"
         tools:layout="@layout/fragment_list" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.roomapp.fragments.add.AddFragment"
+        android:name="com.example.TaskManagerApp.fragments.add.AddFragment"
         android:label="Add"
         tools:layout="@layout/fragment_add" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.roomapp.fragments.update.UpdateFragment"
+        android:name="com.example.TaskManagerApp.fragments.update.UpdateFragment"
         android:label="Update"
         tools:layout="@layout/fragment_update" >
         <action
@@ -36,6 +36,6 @@
             app:destination="@id/listFragment" />
         <argument
             android:name="currentUser"
-            app:argType="com.example.roomapp.model.User" />
+            app:argType="com.example.TaskManagerApp.model.User" />
     </fragment>
 </navigation>

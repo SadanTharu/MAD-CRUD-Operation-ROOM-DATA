@@ -1,12 +1,12 @@
-package com.example.roomapp.fragments.list
+package com.example.TaskManagerApp.fragments.list
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.roomapp.R
-import com.example.roomapp.model.User
+import com.example.TaskManagerApp.R
+import com.example.TaskManagerApp.model.User
 import kotlinx.android.synthetic.main.custom_row.view.*
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {

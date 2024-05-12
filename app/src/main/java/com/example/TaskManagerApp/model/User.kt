@@ -1,4 +1,4 @@
-package com.example.roomapp.model
+package com.example.TaskManagerApp.model
 
 import android.os.Parcelable
 import androidx.room.Entity

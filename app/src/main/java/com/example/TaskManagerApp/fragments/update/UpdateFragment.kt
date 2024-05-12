@@ -1,4 +1,4 @@
-package com.example.roomapp.fragments.update
+package com.example.TaskManagerApp.fragments.update
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -8,12 +8,11 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.roomapp.R
-import com.example.roomapp.model.User
-import com.example.roomapp.viewmodel.UserViewModel
+import com.example.TaskManagerApp.R
+import com.example.TaskManagerApp.model.User
+import com.example.TaskManagerApp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
 

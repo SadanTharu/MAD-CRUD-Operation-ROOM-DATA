@@ -1,8 +1,8 @@
-package com.example.roomapp.data
+package com.example.TaskManagerApp.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.roomapp.model.User
+import com.example.TaskManagerApp.model.User
 
 @Dao
 interface UserDao {

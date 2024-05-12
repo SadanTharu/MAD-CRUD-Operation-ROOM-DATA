@@ -1,8 +1,8 @@
-package com.example.roomapp.repository
+package com.example.TaskManagerApp.repository
 
 import androidx.lifecycle.LiveData
-import com.example.roomapp.data.UserDao
-import com.example.roomapp.model.User
+import com.example.TaskManagerApp.data.UserDao
+import com.example.TaskManagerApp.model.User
 
 class UserRepository(private val userDao: UserDao) {
 

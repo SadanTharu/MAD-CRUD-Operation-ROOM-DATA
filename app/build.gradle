@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.example.roomapp"
+        applicationId 'com.example.TaskManagerApp'
         minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
