@@ -22,4 +22,7 @@ interface NoteDao {
     @Query("SELECT * FROM note_table ORDER BY priority ASC")
     fun readAllData(): LiveData<List<Note>>
 
+    @Query("SELECT * FROM note_table WHERE title LIKE '%' || :searchQuery || '%' ORDER BY priority ASC")
+    fun searchNotesByTitle(searchQuery: String): LiveData<List<Note>>
+
 }

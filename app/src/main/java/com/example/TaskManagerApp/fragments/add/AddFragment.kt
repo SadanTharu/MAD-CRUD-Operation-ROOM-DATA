@@ -42,7 +42,7 @@ class AddFragment : Fragment() {
         val priority = addPriority_et.text
 
         if(inputCheck(title, content, priority)){
-            // Create User Object
+            // Create Note Object
             val note = Note(
                 0,
                 title,

@@ -40,4 +40,9 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         this.noteList = note
         notifyDataSetChanged()
     }
+
+    fun filterList(filteredNotes: List<Note>) {
+        noteList = filteredNotes
+        notifyDataSetChanged()
+    }
 }
